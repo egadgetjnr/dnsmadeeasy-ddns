@@ -39,7 +39,7 @@ do
       HIPCHAT="room_id=$HIPCHAT_ROOM_ID&from=DDNS&message=Monitored+IP+Address+Changed:+$IP_ADDRESS&color=red"
       wget -qO- "https://api.hipchat.com/v1/rooms/message?auth_token=$HIPCHAT_API_TOKEN&format=json&$HIPCHAT" --no-check-certificate > /dev/null
     fi
-    URL="https://www.dnsmadeeasy.com/servlet/updateip?username=$DME_USER&password=$DME_PASS&id=$DME_ID&ip=$IP_ADDRESS"
+    URL="https://cp.dnsmadeeasy.com/servlet/updateip?username=$DME_USER&password=$DME_PASS&id=$DME_ID&ip=$IP_ADDRESS"
     if wget -qO- "$URL" --no-check-certificate | grep success > /dev/null; then
     	echo "DNS Record Updated Successfully" > /proc/self/fd/1
     else
