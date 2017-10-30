@@ -40,7 +40,7 @@ do
       wget -qO- "https://api.hipchat.com/v1/rooms/message?auth_token=$HIPCHAT_API_TOKEN&format=json&$HIPCHAT" --no-check-certificate > /dev/null
     fi
     URL="https://cp.dnsmadeeasy.com/servlet/updateip?username=$DME_USER&password=$DME_PASS&id=$DME_ID&ip=$IP_ADDRESS"
-    if wget -qO- "$URL" --no-check-certificate | grep success > /dev/null; then
+    if wget -q -O "$URL" --no-check-certificate | grep success > /dev/null; then
     	echo "DNS Record Updated Successfully" > /proc/self/fd/1
     else
     	echo "Problem updating DNS record." > /proc/self/fd/1
